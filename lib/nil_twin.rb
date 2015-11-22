@@ -13,12 +13,8 @@ module NilTwin
 
 
   module ClassMethods # (self.)
-    def find(*args)
-      begin
-        super
-      rescue ActiveRecord::RecordNotFound
-        self.nil_twin.new
-      end
+    def find_by(*args)
+      super || self.nil_twin.new
     end
   end
 
