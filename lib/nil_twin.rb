@@ -3,7 +3,6 @@ require "nil_twin/version"
 module NilTwin
 
   def self.included(klass)
-    puts "included NilTwin #{VERSION}!"
     nil_twin_name = "#{klass}NilTwin"
 
     nil_twin = nil_twin_name.safe_constantize || Object.const_set(nil_twin_name, Class.new(klass))
